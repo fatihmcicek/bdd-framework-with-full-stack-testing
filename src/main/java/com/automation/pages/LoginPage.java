@@ -11,10 +11,10 @@ public class LoginPage extends BasePage {
     private WebElement loginLink;
 
     @FindBy(css = "input[data-qa='login-email']")
-    private WebElement emailInput;
+    private WebElement loginEmailInput;
 
     @FindBy(css = "input[data-qa='login-password']")
-    private WebElement passwordInput;
+    private WebElement loginPasswordInput;
 
     @FindBy(css = "button[data-qa='login-button']")
     private WebElement loginButton;
@@ -28,47 +28,55 @@ public class LoginPage extends BasePage {
     @FindBy(css = ".login-form p")
     private WebElement errorMessage;
 
-    @FindBy(css = "a:contains('Logged in as')")
-    private WebElement loggedInText;
+    @FindBy(xpath = "//a[contains(text(), 'Logged in as')]")
+    private WebElement loggedInAsText;
+
+    @FindBy(xpath = "//a[contains(text(), 'Logged in as')]/b")
+    private WebElement loggedInUsername;
 
     public void clickLoginLink() {
-        log.info("Clicking on Login link");
         click(loginLink);
     }
 
-    public void enterEmail(String email) {
-        log.info("Entering email: {}", email);
-        sendKeys(emailInput, email);
+    public void enterLoginEmail(String email) {
+        sendKeys(loginEmailInput, email);
     }
 
-    public void enterPassword(String password) {
-        log.info("Entering password");
-        sendKeys(passwordInput, password);
+    public void enterLoginPassword(String password) {
+        sendKeys(loginPasswordInput, password);
     }
 
     public void clickLoginButton() {
-        log.info("Clicking on Login button");
         click(loginButton);
     }
 
-    public boolean isUserLoggedIn() {
-        log.info("Checking if user is logged in");
-        return isDisplayed(logoutButton);
+    public void clickLogoutButton() {
+        click(logoutButton);
+    }
+
+    public String getLoginFormHeader() {
+        return getText(loginFormHeader);
     }
 
     public String getErrorMessage() {
-        log.info("Getting error message");
         return getText(errorMessage);
     }
 
     public boolean isLoggedInMessageDisplayed() {
-        log.info("Checking if 'Logged in as' message is displayed");
-        return isDisplayed(loggedInText);
+        return isDisplayed(loggedInAsText);
+    }
+
+    public String getLoggedInUsername() {
+        return getText(loggedInUsername);
     }
 
     public void login(String email, String password) {
-        enterEmail(email);
-        enterPassword(password);
+        enterLoginEmail(email);
+        enterLoginPassword(password);
         clickLoginButton();
+    }
+
+    public boolean isOnLoginPage() {
+        return isDisplayed(loginFormHeader);
     }
 }

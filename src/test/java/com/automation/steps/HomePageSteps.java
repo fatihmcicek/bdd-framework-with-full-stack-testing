@@ -2,6 +2,7 @@ package com.automation.steps;
 
 import com.automation.config.ConfigReader;
 import com.automation.pages.HomePage;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.log4j.Log4j2;
@@ -13,6 +14,11 @@ public class HomePageSteps {
 
     public HomePageSteps() {
         this.homePage = new HomePage();
+    }
+
+    @Given("I am on the home page")
+    public void iAmOnTheHomePage() {
+        homePage.navigateToUrl(ConfigReader.getBaseUrl());
     }
 
     @When("I navigate to the Automation Exercise website")

@@ -1,6 +1,7 @@
 package com.automation.steps;
 
 import com.automation.config.DriverConfig;
+import com.automation.context.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -11,6 +12,11 @@ import org.openqa.selenium.WebDriver;
 
 @Log4j2
 public class Hooks {
+    private final TestContext testContext;
+
+    public Hooks(TestContext testContext) {
+        this.testContext = testContext;
+    }
 
     @Before
     public void setup(Scenario scenario) {

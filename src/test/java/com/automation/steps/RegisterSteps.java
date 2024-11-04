@@ -1,5 +1,6 @@
 package com.automation.steps;
 
+import com.automation.context.TestContext;
 import com.automation.pages.RegisterPage;
 import com.automation.utils.Helper;
 import io.cucumber.datatable.DataTable;
@@ -15,10 +16,13 @@ import java.util.Map;
 public class RegisterSteps {
     private final RegisterPage registerPage;
     private final Helper helper;
+    private final TestContext testContext;
 
-    public RegisterSteps() {
+    public RegisterSteps(TestContext testContext) {
         this.registerPage = new RegisterPage();
         this.helper = new Helper();
+        this.testContext = testContext;
+        log.debug("RegisterSteps initialized with TestContext: {}", testContext);
     }
 
     @When("I click on Signup Login button")
@@ -43,6 +47,8 @@ public class RegisterSteps {
     @And("I enter email address for registration")
     public void iEnterEmailAddressForRegistration() {
         String email = helper.generateRandomEmail();
+        log.info("Generated email for registration: {}", email);
+        testContext.setRegisteredEmail(email);
         registerPage.enterEmail(email);
     }
 
