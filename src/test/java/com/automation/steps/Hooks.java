@@ -15,6 +15,7 @@ public class Hooks {
     @Before
     public void setup(Scenario scenario) {
         log.info("Starting scenario: {}", scenario.getName());
+        log.info("Thread ID: {}", Thread.currentThread().getId());
         DriverConfig.initializeDriver();
     }
 
@@ -26,7 +27,8 @@ public class Hooks {
             log.info("Scenario failed, taking screenshot");
             try {
                 final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot, "image/png", "Screenshot");
+                scenario.attach(screenshot, "image/png", "Screenshot-" +
+                        scenario.getName().replaceAll("\\s+", "_"));
             } catch (Exception e) {
                 log.error("Failed to take screenshot: {}", e.getMessage());
             }
