@@ -23,6 +23,20 @@ target/
 .springBeans
 .sts4-cache
 
+# Test output (except specific directories we want to keep)
+test-output/*
+!test-output/cucumber-reports/
+!test-output/extent-reports/
+!test-output/testng-reports/
+
+# Keep directories but ignore contents
+test-output/cucumber-reports/*
+!test-output/cucumber-reports/.gitkeep
+test-output/extent-reports/*
+!test-output/extent-reports/.gitkeep
+test-output/testng-reports/*
+!test-output/testng-reports/.gitkeep
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

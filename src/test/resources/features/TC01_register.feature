@@ -4,7 +4,7 @@ Feature: TC01 - New User Registration
   So that I can have my own account
 
   @regression @smoke
-  Scenario: TC01_01 - Successful user registration
+  Scenario: TC01 - Successful user registration
     Given I am on the home page
     When I click on Signup Login button
     Then I should see "New User Signup!" text

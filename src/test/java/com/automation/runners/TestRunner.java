@@ -9,9 +9,10 @@ import org.testng.annotations.DataProvider;
         glue = "com.automation.steps",
         plugin = {
                 "pretty",
-                "html:target/cucumber-reports/cucumber-pretty.html",
-                "json:target/cucumber-reports/CucumberTestReport.json",
-                "rerun:target/cucumber-reports/rerun.txt"
+                "html:test-output/cucumber-reports/cucumber-pretty.html",
+                "json:test-output/cucumber-reports/CucumberTestReport.json",
+                "rerun:test-output/cucumber-reports/rerun.txt",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         tags = "@smoke or @regression",
         monochrome = true

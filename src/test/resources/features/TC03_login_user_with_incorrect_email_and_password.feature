@@ -4,7 +4,7 @@ Feature: TC03 - Login User with incorrect email and password
   When I try to login with incorrect credentials
 
   @regression
-  Scenario: TC03_01 - Login with invalid credentials
+  Scenario: TC03 - Login with invalid credentials
     Given I am on the home page
     When I click on Signup Login button
     Then I should see "Login to your account" text

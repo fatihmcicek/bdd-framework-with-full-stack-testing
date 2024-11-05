@@ -4,7 +4,7 @@ Feature: TC04 - Contact Us Form
   So that I can submit my inquiries
 
   @regression
-  Scenario: TC04_01 - Submit Contact Us form successfully
+  Scenario: TC04 - Submit Contact Us form successfully
     Given I am on the home page
     When I click on Contact Us button
     Then I should see "GET IN TOUCH" text

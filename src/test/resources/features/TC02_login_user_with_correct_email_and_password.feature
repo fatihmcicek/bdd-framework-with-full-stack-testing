@@ -12,26 +12,26 @@ Feature: TC02 - Login Functionality and User Session Management
     And I click Signup button
     Then I should see "ENTER ACCOUNT INFORMATION" text
     When I fill account details
-      | Field         | Value     |
-      | Title         | Mr        |
-      | Password      | Test123!  |
-      | Day of birth  | 15        |
-      | Month of birth| April     |
-      | Year of birth | 1990      |
+      | Field          | Value    |
+      | Title          | Mr       |
+      | Password       | Test123! |
+      | Day of birth   | 15       |
+      | Month of birth | April    |
+      | Year of birth  | 1990     |
     And I select newsletter subscription
     And I select special offers
     And I fill address details
-      | Field         | Value            |
-      | First name    | John             |
-      | Last name     | Doe              |
-      | Company       | Test Company     |
-      | Address       | 123 Test Street  |
-      | Address2      | Apt 4            |
-      | Country       | United States    |
-      | State         | California       |
-      | City          | Los Angeles      |
+      | Field         | Value           |
+      | First name    | John            |
+      | Last name     | Doe             |
+      | Company       | Test Company    |
+      | Address       | 123 Test Street |
+      | Address2      | Apt 4           |
+      | Country       | United States   |
+      | State         | California      |
+      | City          | Los Angeles     |
       | Zipcode       | 90001           |
-      | Mobile number | +1234567890      |
+      | Mobile number | +1234567890     |
     And I click Create Account button
     Then I should see "ACCOUNT CREATED!" text
     When I click Continue button
